@@ -45,7 +45,11 @@ function App() {
 
   return (
     <div className="app">
-      <Tasks tasks={tasks} handleKeyDown={handleKeyDown} />
+      <Tasks
+        tasks={tasks}
+        handleKeyDown={handleKeyDown}
+        updateTodoAtIndex={updateTodoAtIndex}
+      />
     </div>
   );
 }

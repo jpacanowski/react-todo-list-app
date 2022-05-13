@@ -1,4 +1,4 @@
-function Tasks({ tasks, handleKeyDown }) {
+function Tasks({ tasks, handleKeyDown, updateTodoAtIndex }) {
 
   return (
     <>
@@ -10,7 +10,9 @@ function Tasks({ tasks, handleKeyDown }) {
               <input
                 type="text"
                 value={task.content}
-                onKeyDown={e => handleKeyDown(e, i)} />
+                onKeyDown={e => handleKeyDown(e, i)}
+                onChange={e => updateTodoAtIndex(e, i)}
+              />
             </li>
           ))}
         </ul>
