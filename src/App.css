@@ -32,11 +32,12 @@ body {
   justify-content: center;
   align-items: center;
   transition: background-color .2s ease-in-out;
-  border: 1px solid #71D448;
+  border: 1px solid #282c34;
 }
 
 .checkbox:hover {
   background-color: #71D448;
+  border: 1px solid #71D448;
 }
 
 ul {
