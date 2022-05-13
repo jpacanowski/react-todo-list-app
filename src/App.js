@@ -26,15 +26,21 @@ function App() {
   }
 
   function createTodoAtIndex(e, i) {
-    const newTask = [...tasks];
-    newTask.splice(i + 1, 0, {
+    const newTasks = [...tasks];
+    newTasks.splice(i + 1, 0, {
       content: '',
       isCompleted: false,
     });
-    setTasks(newTask);
+    setTasks(newTasks);
     setTimeout(() => {
       document.forms[0].elements[i + 1].focus();
     }, 0);
+  }
+
+  function updateTodoAtIndex(e, i) {
+    const newTasks = [...tasks];
+    newTasks[i].content = e.target.value;
+    setTasks(newTasks);
   }
 
   return (
