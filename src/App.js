@@ -23,6 +23,10 @@ function App() {
     if(e.key === 'Enter') {
       createTodoAtIndex(e, i);
     }
+    if(e.key === 'Backspace' && tasks[i].content === '') {
+      e.preventDefault();
+      return removeTodoAtIndex(i);
+    }
   }
 
   function createTodoAtIndex(e, i) {
@@ -41,6 +45,14 @@ function App() {
     const newTasks = [...tasks];
     newTasks[i].content = e.target.value;
     setTasks(newTasks);
+  }
+
+  function removeTodoAtIndex(i) {
+    if(i === 0 && tasks.length === 1) return;
+    setTasks(tasks => tasks.slice(0, i).concat(tasks.slice(i + 1, tasks.length)));
+    setTimeout(() => {
+      document.forms[0].elements[i - 1].focus();
+    }, 0);
   }
 
   return (
