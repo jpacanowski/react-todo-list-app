@@ -1,12 +1,14 @@
-function Tasks({ tasks, handleKeyDown, updateTodoAtIndex }) {
+function Tasks({ tasks, handleKeyDown, updateTodoAtIndex, toggleTodoCompleteAtIndex }) {
 
   return (
     <>
       <form className="todo-list">
         <ul>
           {tasks.map((task, i) => (
-            <li className="todo">
-              <div className="checkbox"></div>
+            <li className={`todo ${task.isCompleted && 'todo-is-completed'}`}>
+              <div className="checkbox" onClick={() => toggleTodoCompleteAtIndex(i)}>
+                {task.isCompleted && (<span>&#x2714;</span>)}
+              </div>
               <input
                 type="text"
                 value={task.content}

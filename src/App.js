@@ -55,12 +55,19 @@ function App() {
     }, 0);
   }
 
+  function toggleTodoCompleteAtIndex(index) {
+    const temporaryTasks = [...tasks];
+    temporaryTasks[index].isCompleted = !temporaryTasks[index].isCompleted;
+    setTasks(temporaryTasks);
+  }
+
   return (
     <div className="app">
       <Tasks
         tasks={tasks}
         handleKeyDown={handleKeyDown}
         updateTodoAtIndex={updateTodoAtIndex}
+        toggleTodoCompleteAtIndex={toggleTodoCompleteAtIndex}
       />
     </div>
   );
